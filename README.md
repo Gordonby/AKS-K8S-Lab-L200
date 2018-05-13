@@ -85,10 +85,10 @@ Lets run a couple of other common commands.
 We're going to use a YAML file from the Azure Quickstarts.
 The YAML file declaratively states the container name location and any other supporting Kubernetes resources needed.  We'll examine the YAML later.
 
-> mkdir ~/clouddrive/aks-yaml
-> cd ~/clouddrive/aks-yaml
-> curl -O https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
-> kubectl create -f azure-vote-all-in-one-redis.yml
+        mkdir ~/clouddrive/aks-yaml
+        cd ~/clouddrive/aks-yaml
+        curl -O https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
+        kubectl create -f azure-vote-all-in-one-redis.yml
 
 
 Once this has created, lets use the following commands to see what's been created ```kubectl get pods``` ```kubectl get svc ```
