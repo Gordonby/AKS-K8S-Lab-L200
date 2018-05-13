@@ -85,12 +85,11 @@ Lets run a couple of other common commands.
 We're going to use a YAML file from the Azure Quickstarts.
 The YAML file declaratively states the container name location and any other supporting Kubernetes resources needed.  We'll examine the YAML later.
 
-    ```
-    mkdir ~/clouddrive/aks-yaml
-    cd ~/clouddrive/aks-yaml
-    curl -O https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
-    kubectl create -f azure-vote-all-in-one-redis.yml
-    ```
+> mkdir ~/clouddrive/aks-yaml
+> cd ~/clouddrive/aks-yaml
+> curl -O https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
+> kubectl create -f azure-vote-all-in-one-redis.yml
+
 
 Once this has created, lets use the following commands to see what's been created ```kubectl get pods``` ```kubectl get svc ```
 
@@ -115,19 +114,14 @@ Deployment: According to Kubernetes documentation, the definition of deployment(
 ## Exercise 5 - Autohealing
 
 Run this command and see what pods you have running
-
-    ```
-    kubectl get pods
-    ```
+    ```kubectl get pods```
 
 Now delete the pod
-    ```
-    kubectl delete pod NameOfYourPod
-    ```
+    ```kubectl delete pod NameOfYourPod```
+
 Run this command again and see what's reported
-    ```
-    kubectl get pods -w
-    ```
+    ```kubectl get pods -w```
+    
 I'm expecting that your pod has gone, but a very similarly named one has been put in it's place.
 TA-DA.  Autohealing!
 
@@ -184,8 +178,6 @@ Now lets have a quick look at all the things we could install with Helm.  You ca
 The syntax for installing a package is 
 
 ```helm install --name my-blog stable/wordpress```
-
-
 
 ## Troubleshooting Tips
 
