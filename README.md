@@ -1,7 +1,7 @@
 # Azure Container Service (AKS) - Kubernetes Lab.  Level 200-250
 
 ## Objectives
-This lab is aimed at people who haven't yet used Kubernetes.  It takes you through a step by step installation on Azure using the Azure Container Service, and the most common commands and operations to get started with Kubernetes.
+This lab is aimed at people who haven't yet used Kubernetes.  It takes you through a step by step installation on Azure using the Azure Container Service (AKS), and the most common commands and operations to get started with Kubernetes.
 
 ## Tools required
 Exercises 1-6
@@ -52,7 +52,7 @@ This takes between 10 and 30 minutes to provision.  So lets use this time to wat
 If you haven't seen this, watching it will take 8 minutes and it does the best job of talking about the Kubernetes constructs that i've seen.  If you have already seen it, i'd encourage a second watch just to let everything sink in.
 
 [![Illustrated Children's Guide to Kubernetes](http://img.youtube.com/vi/4ht22ReBjno/0.jpg)](https://www.youtube.com/watch?v=4ht22ReBjno  "Illustrated Children's Guide to Kubernetes")
-
+https://www.youtube.com/watch?v=4ht22ReBjno
 
 ### Post creation
 After the cluster has been created, in the Azure Portal find the resource group and open it up.  You'll see a lot of Azure services have been created.  It's important to realise that we have
@@ -127,7 +127,7 @@ TA-DA.  Autohealing!
 
 ![image](./Media/delete-pod.png) 
 
-## Exercise 7 - Contexts, moving and sharing.
+## Exercise 7 - Working locally
 
 By now, we're all bored of Cloud Shell, sure it's nice and easy.. But every time you go for a coffee, it times out - and we need to consider accessing this from somewhere else.
 
