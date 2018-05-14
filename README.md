@@ -131,14 +131,14 @@ TA-DA.  Autohealing!
 
 By now, we're all bored of Cloud Shell, sure it's nice and easy.. But every time you go for a coffee, it times out - and we need to consider accessing this from somewhere else.
 
-With ACS this was a little bit of a pain, moving contexts/ssh keys from Cloud Shell to the local linux environment.  Thankfully with AKS, all we have to do is run the ```az aks get-credentials --resource-group=K8s --name=K8sCluster``` command. 
+With ACS this was a little bit of a pain, moving contexts/ssh keys from Cloud Shell to the local linux environment.  Thankfully with AKS, all we have to do is sign in with the ```az login``` com mand and run the ```az aks get-credentials --resource-group=K8s --name=K8sCluster``` command. 
 
 ### Installing Kubectl
 We need to install Kubectl into your local linux environment.
 Follow the appropriate instructions here : https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 
-Now you can run the following command:
+Now you can run the following command to ensure that everything is working.
 ```k8 get nodes```
 
 
