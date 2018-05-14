@@ -3,6 +3,12 @@
 ## Objectives
 This lab is aimed at people who haven't yet used Kubernetes.  It takes you through a step by step installation on Azure using the Azure Container Service (AKS), and the most common commands and operations to get started with Kubernetes.
 
+Not intended to replace the AKS guides on docs, simply to compliment.
+https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
+
+Expect this lab to take about 90 minutes.
+
 ## Tools required
 Exercises 1-6
 * Azure Cloud Shell (Bash version) (It's built into the Azure Portal, nothing to install!)
