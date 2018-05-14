@@ -162,6 +162,12 @@ Let's back out of the dashboard and run these commands to see what's been create
 
 ```kubectl get svc```
 
+The get svc command will output something like this;
+![image](./Media/nginx-svc.png) 
+Where we have an Azure Public IP allocated.  If this doesn't appear you can watch for changes by running the ```kubectl get svc -w``` command, then when you have a public ip allocated you can test it out in your browser.
+
+![image](./Media/nginx-publicip.png) 
+
 ## Exercsie 10 - Helm
 Helm is a package manager for Kubernetes.  It will simply allow the installation of complex software using *Helm Charts* (are you noticing a terminology theme yet :)).
 
