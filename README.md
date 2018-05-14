@@ -5,6 +5,7 @@ This lab is aimed at people who haven't yet used Kubernetes.  It takes you throu
 
 Not intended to replace the AKS guides on docs, simply to compliment.
 > https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+>
 > https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app
 
 Expect this lab to take about 90 minutes.
