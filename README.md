@@ -1,7 +1,7 @@
-# Azure Container Service (AKS) - Kubernetes Lab.  Level 200-250
+# Azure Kubernetes Service (AKS) -  Level 200-250 Lab.
 
 ## Objectives
-This lab is aimed at people who haven't yet used Kubernetes.  It takes you through a step by step installation on Azure using the Azure Container Service (AKS), and the most common commands and operations to get started with Kubernetes.
+This lab is aimed at people who haven't yet used Kubernetes.  It takes you through a step by step installation on Azure using the Azure Kubernetes Service (AKS), and the most common commands and operations to get started with Kubernetes.
 
 Not intended to replace the AKS guides on docs, simply to compliment.
 > https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
