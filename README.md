@@ -62,10 +62,7 @@ If you haven't seen this, watching it will take 8 minutes and it does the best j
 https://www.youtube.com/watch?v=4ht22ReBjno
 
 ### Post creation
-After the cluster has been created, in the Azure Portal find the resource group and open it up.  You'll see a lot of Azure services have been created.  It's important to realise that we have
-1. A new vNet
-1. VM's, not VM Scalesets
-1. A bunch of other infrastructure services
+After the cluster has been created, in the Azure Portal find the resource group and open it up.  You'll see a Kubernetes service cluster created
 
 ![image](./Media/cluster-created.png) 
 
