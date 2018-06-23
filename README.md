@@ -143,7 +143,7 @@ Follow the appropriate instructions here : https://kubernetes.io/docs/tasks/tool
 
 
 Now you can run the following command to ensure that everything is working.
-```k8 get nodes```
+```kubectl get nodes```
 
 
 ## Exercise 8 - Accessing the dashboard
