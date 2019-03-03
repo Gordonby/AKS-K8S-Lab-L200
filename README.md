@@ -51,7 +51,7 @@ Copy and paste this script into the Cloud Shell.  It'll do 3 things;
 
     ```
     az group create --name K8s --location eastus
-    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --kubernetes-version 1.9.6 --node-vm-size=Standard_B2s
+    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --kubernetes-version 1.12.5 --node-vm-size=Standard_B2s
     az aks get-credentials --resource-group=K8s --name=K8sCluster 
     ```
 
