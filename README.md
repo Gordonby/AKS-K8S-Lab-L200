@@ -226,3 +226,7 @@ The syntax for installing a package is
     Error: cannot connect to Tiller
 
 >REBOOT THE VM's!
+
+####ERROR: Operation failed with status: 'Bad Request'. Details: The value of parameter orchestratorProfile.OrchestratorVersion is invalid.
+
+>Update the OrchestratorVersion in our case is --kubernetes-version to current latest version 1.12.5 for example ( please check Azure documentation to keep up to date : https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster  )
