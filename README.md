@@ -50,8 +50,10 @@ Copy and paste this script into the Cloud Shell.  It'll do 3 things;
 1. Create a AKS cluster with a few specific options set.  You don't have to provide half of these, but i quite like the new B-series VM so we're setting that up.  The default would have been a D2_V2 VM for the agent VM's that get created.  It also would have been 3 agents, but 1 is enough for the time being.
 
     ```
-    az group create --name K8s --location eastus
-    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --kubernetes-version 1.12.5 --node-vm-size=Standard_B2s
+    location=eastus
+    latestversion="$(az aks get-versions -l $location | grep "None available" | awk '{print $1}')"
+    az group create --name K8s --location $location
+    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --node-vm-size=Standard_B2s --kubernetes-version $latestversion --disable-rbac
     az aks get-credentials --resource-group=K8s --name=K8sCluster 
     ```
 
