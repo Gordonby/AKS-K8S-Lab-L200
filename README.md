@@ -45,9 +45,11 @@ You'll then see the Cloud Shell open at the bottom of the screen.
 Alternatively, open the cloud shell in it's own window
 > https://shell.azure.com/
 
-Copy and paste this script into the Cloud Shell.  It'll do 3 things;
+Copy and paste this script into the Cloud Shell.  It'll do 4 things;
 1. Create a resource group called K8S in eastus.
+1. Figure out the latest Kubernetes version available in the region
 1. Create a AKS cluster with a few specific options set.  You don't have to provide half of these, but i quite like the new B-series VM so we're setting that up.  The default would have been a D2_V2 VM for the agent VM's that get created.  It also would have been 3 agents, but 1 is enough for the time being.
+1. Grab the credentials to be able to connect to your cluster.
 
     ```
     location=eastus
@@ -57,7 +59,7 @@ Copy and paste this script into the Cloud Shell.  It'll do 3 things;
     az aks get-credentials --resource-group=K8s --name=K8sCluster 
     ```
 
-This takes between 10 and 30 minutes to provision.  So lets use this time to watch the Illustrated Children's Guide to Kubernetes.
+This takes between 7 and 15 minutes to provision.  So lets use this time to watch the Illustrated Children's Guide to Kubernetes.
 If you haven't seen this, watching it will take 8 minutes and it does the best job of talking about the Kubernetes constructs that i've seen.  If you have already seen it, i'd encourage a second watch just to let everything sink in.
 
 [![Illustrated Children's Guide to Kubernetes](http://img.youtube.com/vi/4ht22ReBjno/0.jpg)](https://www.youtube.com/watch?v=4ht22ReBjno  "Illustrated Children's Guide to Kubernetes")
