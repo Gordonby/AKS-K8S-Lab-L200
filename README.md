@@ -53,9 +53,8 @@ Copy and paste this script into the Cloud Shell.  It'll do 4 things;
 
     ```
     location=eastus
-    latestversion="$(az aks get-versions -l $location | grep "None available" | awk '{print $1}')"
     az group create --name K8s --location $location
-    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --node-vm-size=Standard_B2s --kubernetes-version $latestversion --disable-rbac
+    az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --node-vm-size=Standard_B2s --disable-rbac
     az aks get-credentials --resource-group=K8s --name=K8sCluster 
     ```
 
