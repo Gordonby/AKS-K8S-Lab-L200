@@ -45,7 +45,7 @@ You'll then see the Cloud Shell open at the bottom of the screen.
 Alternatively, open the cloud shell in it's own window
 > https://shell.azure.com/
 
-Copy and paste this script into the Cloud Shell.  It'll do 4 things;
+Copy and paste this script into the Cloud Shell.  It'll do 3 things;
 1. Create a resource group called K8S in eastus.
 1. Create a AKS cluster with a few specific options set.  You don't have to provide half of these, but i quite like the new B-series VM so we're setting that up.  The default would have been a D2_V2 VM for the agent VM's that get created.  It also would have been 3 agents, but 1 is enough for the time being.
 1. Grab the credentials to be able to connect to your cluster.
