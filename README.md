@@ -181,7 +181,10 @@ Please read the introduction section through to the installation section here : 
 
 Once installed, initialise it.  This will install a tiller pod into the cluster.
 
-```helm init```
+```helm init --history-max 200 --node-selectors "beta.kubernetes.io/os=linux"```
+
+If you want to watch for the tiller pod to be created, use this command.  (Use Ctrl-c to go back to the command prompt)
+```kubectl get pods --namespace kube-system -w```
 
 Now lets have a quick look at all the things we could install with Helm.  You can also reference the KubeApps site: https://hub.kubeapps.com/
 
