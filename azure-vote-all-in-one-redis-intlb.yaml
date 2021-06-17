@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: azure-vote-back
+      app: azure-vote-back
   template:
     metadata:
       labels:
@@ -37,7 +37,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: azure-vote-front
+      app: azure-vote-front
   strategy:
     rollingUpdate:
       maxSurge: 1
