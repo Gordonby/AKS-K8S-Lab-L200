@@ -71,6 +71,8 @@ After the cluster has been created, in the Azure Portal find the resource group 
 ## Exercise 2 - kubectl 
 Kubectl is the main tool you're going to use to manage your kubernetes cluster.  It comes pre-installed in the Azure Cloud Shell, which is awesome. 
 
+The `az aks get-credentials` command you run earlier lets you get the access credentials for an AKS cluster and merges them into the kubeconfig file that kubectl uses.
+
 So lets have a look at a basic command that will tell us about the VM's.
 
 ```kubectl get nodes```
