@@ -151,32 +151,24 @@ Now you can run the following command to ensure that everything is working.
 
 
 ## Exercise 8 - Accessing the dashboard
-Kubernetes has a web dashboard, who knew!
-Lets have a look
+
+### The Azure Portal Kubernetes Dashboard Experience
+
+AKS provides a workload GUI experience in the Azure Portal. You can access it easily from the commandline with the `browse` command. Previously this command launched the Kubernetes Dashboard, which can now be accessed by using these [instructions](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 ```az aks browse -g K8S -n K8SCluster```
 
-![image](./Media/dashboard.png) 
+From the workload GUI in the portal, you can choose to deploy a new application from yaml.
+An easy way to get some yaml is to use the `dry-run` flag in the command line.
 
-## Exercise 9 - Creating a deployment in the Dashboard GUI
-From within the dashboard, go create then complete the details as per screenshot.
-![image](./Media/dash-nginx.png) 
+```bash
+kubectl run my-nginx --image nginx --restart Never --dry-run=client -o yaml
+```
 
-![image](./Media/dash-deployments.png)
+This command will give you the necessary yaml to create NGINX from the Workload Add.
 
-Let's back out of the dashboard and run these commands to see what's been created.
 
-```kubectl get pods```
-
-```kubectl get svc```
-
-The get svc command will output something like this;
-![image](./Media/nginx-svc.png) 
-Where we have an Azure Public IP allocated.  If this doesn't appear you can watch for changes by running the ```kubectl get svc -w``` command, then when you have a public ip allocated you can test it out in your browser.
-
-![image](./Media/nginx-publicip.png) 
-
-## Exercsie 10 - Helm
+## Exercsie 9 - Helm
 Helm is a package manager for Kubernetes.  It will simply allow the installation of complex software using *Helm Charts* (are you noticing a terminology theme yet :)).
 
 Please read the introduction section through to the installation section here : https://github.com/kubernetes/helm
