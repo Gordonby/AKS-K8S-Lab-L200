@@ -29,16 +29,16 @@ There are 2 main ways of creating an AKS Cluster.
 1. In the Azure Portal GUI
 1. Using the Azure CLI
 
-My preference is the *Azure CLI* because it generates the SSH keys for you as well as the service principal.  The easiest way to use the Azure CLI is in Cloud Shell in the Azure Portal. 
+My preference is the *Azure CLI* because it generates the SSH keys for you as well as the service principal.  The easiest way to use the Azure CLI is in Cloud Shell in the Azure Portal.
 Feel free to use the Portal GUI to create the service, but you're going off-lab (but just a little bit so don't worry too much.
 
-Lets open the Cloud Shell.  
+Lets open the Cloud Shell.
 
 > https://portal.azure.com
 
 Login and then click the Cloud Shell icon
 
-![image](./Media/cloud-shell.png) 
+![image](./Media/cloud-shell.png)
 
 You'll then see the Cloud Shell open at the bottom of the screen.
 
@@ -54,7 +54,7 @@ Copy and paste this script into the Cloud Shell.  It'll do 3 things;
     location=eastus
     az group create --name K8s --location $location
     az aks create --resource-group K8s --name K8sCluster --node-count 1 --generate-ssh-keys --node-vm-size=Standard_B2s --disable-rbac
-    az aks get-credentials --resource-group=K8s --name=K8sCluster 
+    az aks get-credentials --resource-group=K8s --name=K8sCluster
     ```
 
 This takes between 7 and 15 minutes to provision.  So lets use this time to watch the Illustrated Children's Guide to Kubernetes.
@@ -66,10 +66,10 @@ https://www.youtube.com/watch?v=4ht22ReBjno
 ### Post creation
 After the cluster has been created, in the Azure Portal find the resource group and open it up.  You'll see a Kubernetes service cluster created
 
-![image](./Media/cluster-created.png) 
+![image](./Media/cluster-created.png)
 
-## Exercise 2 - kubectl 
-Kubectl is the main tool you're going to use to manage your kubernetes cluster.  It comes pre-installed in the Azure Cloud Shell, which is awesome. 
+## Exercise 2 - kubectl
+Kubectl is the main tool you're going to use to manage your kubernetes cluster.  It comes pre-installed in the Azure Cloud Shell, which is awesome.
 
 The `az aks get-credentials` command you run earlier lets you get the access credentials for an AKS cluster and merges them into the kubeconfig file that kubectl uses.
 
@@ -77,20 +77,20 @@ So lets have a look at a basic command that will tell us about the VM's.
 
 ```kubectl get nodes```
 
-![image](./Media/get-nodes.png) 
+![image](./Media/get-nodes.png)
 
 Lets run a couple of other common commands.
 
 ```kubectl cluster-info```
 
-![image](./Media/cluster-info.png) 
+![image](./Media/cluster-info.png)
 
 ```kubectl version```
 
-![image](./Media/version.png) 
+![image](./Media/version.png)
 
 ## Exercise 3 - Creating a simple deployment
-We're going to use a YAML file from the Azure Quickstarts.
+We're going to use a YAML file from the Azure Quick-starts.
 The YAML file declaratively states the container name location and any other supporting Kubernetes resources needed.  We'll examine the YAML later.
 
         mkdir ~/clouddrive/aks-yaml
@@ -101,13 +101,13 @@ The YAML file declaratively states the container name location and any other sup
 
 Once this has created, lets use the following commands to see what's been created ```kubectl get pods``` ```kubectl get svc ```
 
-![image](./Media/azure-vote.png) 
-    
+![image](./Media/azure-vote.png)
+
 We have 2 containers and 2 services.  One of the services is internally exposed, the other will receive a public ip address.
 If you use the command ```kubectl get svc -w``` the command console will watch for changes and report them.  So when a public ip address is created in Azure, it'll appear in the console window.
 
 It's important to realise that an actual public ip address has been created
-![image](./Media/ip-address.png) 
+![image](./Media/ip-address.png)
 
 You can hit this IP address in a browser and interact with the web app that's been created.
 
@@ -116,10 +116,10 @@ Typically, you would have two types of yaml files to help Kubernetes understand 
 
 Deployment: According to Kubernetes documentation, the definition of deployment(s) is "You describe a desired state in a Deployment object, and the Deployment controller changes the actual state to the desired state at a controlled rate". In my own words, deployments let you define parameters such as how many replicas your applications will have (how many copies of the container will be spun up for the application), the docker image location of your container and the name of it.  Let's review the two deployment configurations (the azure vote frontend and backend apps) from the yaml file you deployed earlier:
 
-![image](./Media/deployment-yaml.png) 
+![image](./Media/deployment-yaml.png)
 
 
-## Exercise 5 - Autohealing
+## Exercise 5 - Auto healing
 
 Run this command and see what pods you have running
     ```kubectl get pods```
@@ -129,17 +129,17 @@ Now delete the pod
 
 Run this command again and see what's reported
     ```kubectl get pods -w```
-    
+
 I'm expecting that your pod has gone, but a very similarly named one has been put in it's place.
 TA-DA.  Autohealing!
 
-![image](./Media/delete-pod.png) 
+![image](./Media/delete-pod.png)
 
 ## Exercise 7 - Working locally
 
 By now, we're all bored of Cloud Shell, sure it's nice and easy.. But every time you go for a coffee, it times out - and we need to consider accessing this from somewhere else.
 
-With ACS this was a little bit of a pain, moving contexts/ssh keys from Cloud Shell to the local linux environment.  Thankfully with AKS, all we have to do is sign in with the ```az login``` com mand and run the ```az aks get-credentials --resource-group=K8s --name=K8sCluster``` command. 
+With ACS this was a little bit of a pain, moving contexts/ssh keys from Cloud Shell to the local linux environment.  Thankfully with AKS, all we have to do is sign in with the ```az login``` com mand and run the ```az aks get-credentials --resource-group=K8s --name=K8sCluster``` command.
 
 ### Installing Kubectl
 We need to install Kubectl into your local linux environment.
@@ -154,11 +154,19 @@ Now you can run the following command to ensure that everything is working.
 
 ### The Azure Portal Kubernetes Dashboard Experience
 
-AKS provides a workload GUI experience in the Azure Portal. You can access it easily from the commandline with the `browse` command. Previously this command launched the Kubernetes Dashboard, which can now be accessed by using these [instructions](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+AKS provides a workload GUI experience in the Azure Portal. You can access it easily from the command line with the `browse` command.
 
 ```az aks browse -g K8S -n K8SCluster```
 
-From the workload GUI in the portal, you can choose to deploy a new application from yaml.
+You'll then be able to inspect the running workloads.
+
+![portal dashboard](Media/newDashboard.png)
+
+### (optional) The Kubernetes Dashboard
+
+If you want to, you can also install the Kubernetes dashboard by following these [instructions](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+
+From the workload GUI in the portal, you can then choose to deploy a new application from yaml.
 An easy way to get some yaml is to use the `dry-run` flag in the command line.
 
 ```bash
@@ -167,24 +175,17 @@ kubectl run my-nginx --image nginx --restart Never --dry-run=client -o yaml
 
 This command will give you the necessary yaml to create NGINX from the Workload Add.
 
-
-## Exercsie 9 - Helm
+## Exercise 9 - Helm
 Helm is a package manager for Kubernetes.  It will simply allow the installation of complex software using *Helm Charts* (are you noticing a terminology theme yet :)).
 
+Helm comes pre-installed in the CloudShell, but for your local environment, you may need to install it.
 Please read the introduction section through to the installation section here : https://github.com/kubernetes/helm
-
-Once installed, initialise it.  This will install a tiller pod into the cluster.
-
-```helm init --history-max 200 --node-selectors "beta.kubernetes.io/os=linux"```
-
-If you want to watch for the tiller pod to be created, use this command.  (Use Ctrl-c to go back to the command prompt)
-```kubectl get pods --namespace kube-system -w```
 
 Now lets have a quick look at all the things we could install with Helm.  You can also reference the KubeApps site: https://hub.kubeapps.com/
 
 ```helm search```
 
-The syntax for installing a package is 
+The syntax for installing a package is
 
 ```helm install --name my-blog stable/wordpress```
 
@@ -193,7 +194,7 @@ The syntax for installing a package is
 #### Inspect pod logs
     kubectl logs thenameofyourpod
 
-#### HELM refused to work, because of version Mismatch
+#### HELM 2 refused to work, because of version Mismatch
     helm incompatible versions client[v2.7.2] server[v2.5.1]
 > helm init --upgrade
 
@@ -212,7 +213,7 @@ The syntax for installing a package is
 > chmod 600 /root/.ssh/id_rsa
 
 > ssh azureuser@k8scheapcl-k8scheap-2d5bb2mgmt.westeurope.cloudapp.azure.com sudo sed -i s/'2.5.1'/'2.7.2'/g /etc/kubernetes/addons/kube-tiller-deployment.yaml && helm init --upgrade
-    
+
     $HELM_HOME has been configured at /root/.helm.
     Tiller (the Helm server-side component) has been upgraded to the current version.
     Happy Helming!
