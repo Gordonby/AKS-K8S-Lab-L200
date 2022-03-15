@@ -15,11 +15,11 @@ Exercises 1-6
 * Azure Cloud Shell (Bash version) (It's built into the Azure Portal, nothing to install!)
 
 Exercises 7-10
-* Bash on a linux OS (or the Linux subsystem for Windows 10)
+* Bash on a linux OS (or the Linux subsystem for Windows)
 
 ## Caveats
 No Windows, no GUI's.  By that i mean you can of course use the Windows OS, but please use either the
-1. Linux subsystem for Windows 10
+1. Linux subsystem for Windows
 1. A Linux VM inside Hyper-V.
 
 If you really want to use the Powershell on Windows 7, go for it... But you'll be going off-lab and will likely have issues to resolve that aren't covered in this guide.
